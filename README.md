@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+###
+1.useState，返回state个setState；
+2.useParams，返回params；
+3.useSearchParams，返回searchParams和setSearchParams；
+4.useLocation，返回location；
+5.useNavigate，返回navigate函数,调用navigate进行页面跳转；
