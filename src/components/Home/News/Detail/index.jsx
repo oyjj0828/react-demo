@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useParams, useSearchParams, useLocation, useNavigate } from 'react-router-dom'
 
 export default function Detail() {
@@ -10,10 +11,10 @@ export default function Detail() {
   // state传参
   const navigate = useNavigate()
   const { state } = useLocation()
-  const id = state.id
+  const id = state?.id || ''
   const back = ()=>{
     navigate({
-      pathname:'/home/news'
+      pathname:'../'
     },{
       replace:false
     })

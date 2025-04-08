@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, useParams } from 'react-router-dom'
+import { Routes, Route, useParams,Outlet } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import MyNavLink from '../../MyNavLink'
 import Detail from './Detail'
@@ -23,7 +23,7 @@ export default function News(props) {
                         // state传参
                         return (
                             <MyNavLink
-                                to='/home/news/detail'
+                                to='detail'
                                 state={{ id: item.id }}
                                 key={item.id}
                             >
@@ -33,9 +33,7 @@ export default function News(props) {
                     })
                 }
             </ul>
-            <Routes>
-                <Route path="detail" element={<Detail />}></Route>
-            </Routes>
+            <Outlet></Outlet>
         </div>
     )
 }

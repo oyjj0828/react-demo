@@ -1,22 +1,21 @@
-import React from 'react'
-import {Routes, Route} from 'react-router-dom'
+import React, { useContext } from 'react'
+import {Routes, Route, Outlet} from 'react-router-dom'
 import MyNavLink from '../MyNavLink'
 import home from './index.module.css'
 import News from './News'
 import Message from './Message'
+import MyContext from '../../context/MyContext'
 
 export default function Home(props) {
+    console.log('from App', useContext(MyContext)); // 1
     return (
         <div>
             <div>Home</div>
             <div className={home.nav}>
-                <MyNavLink to="/home/news">news</MyNavLink>
-                <MyNavLink to="/home/message">message</MyNavLink>
+                <MyNavLink to="news">news</MyNavLink>
+                <MyNavLink to="message">message</MyNavLink>
             </div>
-            <Routes>
-                <Route path="/news/*" element={<News />}></Route>
-                <Route path="message" element={<Message />}></Route>
-            </Routes>
+            <Outlet />
         </div>
     )
 }
