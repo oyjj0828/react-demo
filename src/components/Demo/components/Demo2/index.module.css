@@ -1,0 +1,40 @@
+.father{
+  width: 500px;
+  height: 600px;
+  overflow: auto;
+  border: 1px solid #000;
+  margin-top:30px;
+}
+
+button{
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.active{
+  background-color: rgb(0, 111, 214);
+}
+
+.container{
+  display: grid;
+  gap:10px;
+  padding:10px;
+}
+
+.container div{
+  height: 100px;
+  border: 1px solid #000;
+}
+
+.single{
+  grid-template-columns: 1;
+}
+
+.double{
+  grid-template-columns: repeat(2, 1fr);
+}
+

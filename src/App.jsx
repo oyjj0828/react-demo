@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, Suspense } from 'react';
-import { useRoutes } from 'react-router-dom';
+import { useInRouterContext, useRoutes } from 'react-router-dom';
 import app from './App.module.css'
 import MyNavLink from './components/MyNavLink';
 import { useSelector, useDispatch } from 'react-redux';
@@ -14,10 +14,11 @@ function App() {
   const button = useRef(null)
   useEffect(() => {
     console.log('count', count);  // 在React.strict模式下会打印两次
-  }, [count]);
-  useEffect(() => {
-    console.log('button', button);
-  }, []);
+    return ()=>{
+      console.log('unmount')
+    }
+  });
+  console.log('inRouter',useInRouterContext())  // 判断是否在路由上下文中
   return (
     <div>
       <div>
@@ -36,6 +37,8 @@ function App() {
         <div className={app.nav}>
           <MyNavLink ref={button} to="/home">Home</MyNavLink>
           <MyNavLink to="/about">About</MyNavLink>
+          <MyNavLink to="/chessboard">Chessboard</MyNavLink>
+          <MyNavLink to="/demo">Demo</MyNavLink>
         </div>
         <Suspense fallback={<div>Loading...</div>  /* 路由懒加载*/}> 
           <MyContext.Provider value={{count:1}}>
@@ -48,3 +51,4 @@ function App() {
 }
 
 export default App;
+

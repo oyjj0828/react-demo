@@ -1,0 +1,23 @@
+:root{
+  --w-s:0px;
+  --w-e:0px;
+}
+
+@keyframes expand {
+  0%{
+    width: var(--w-s);
+  }
+  100%{
+    width: var(--w-e);
+  }
+}
+
+.chessboard {
+  width: 0;
+  height: 450px;
+  background-color: red;
+  border: 2px solid black;
+  background: linear-gradient(to right, #ff0000, #0000ff);
+  animation: expand 2s linear forwards infinite;
+}
+
